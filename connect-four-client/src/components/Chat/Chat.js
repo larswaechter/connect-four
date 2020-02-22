@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './Chat.css';
-import Message from '../Message/Message';
+import Message from './Message';
 
 function Chat(props) {
 	const { socket, game, userID } = props;
@@ -13,15 +13,15 @@ function Chat(props) {
 
 		if (msg && msg.length) {
 			socket.emit('chat-message', uuid, msg);
-			document.getElementById('chat-message').value = "";
+			document.getElementById('chat-message').value = '';
 		}
 	};
 
 	return (
 		<div className="Chat">
 			<ul id="messages">
-				{messages.map((msg) => {
-					return <Message msg={msg} userID={userID} />;
+				{messages.map((msg, i) => {
+					return <Message msg={msg} userID={userID} key={i} />;
 				})}
 			</ul>
 			<form action="" onSubmit={handleSubmit}>

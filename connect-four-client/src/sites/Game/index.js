@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import socketIOClient from 'socket.io-client';
 
 import './Game.css';
 
 import Alert from '../../components/Alert';
 import Board from '../../components/Board';
 
-import socketIOClient from 'socket.io-client';
 import Navbar from '../../components/Navbar';
-import Chat from '../../components/Chat';
+import Chat from '../../components/Chat/Chat';
 
 class SitesGame extends Component {
 	constructor(props) {
@@ -26,12 +26,18 @@ class SitesGame extends Component {
 	}
 
 	componentDidMount = () => {
-		const socket = socketIOClient(process.env.REACT_APP_WS_URL, { path: '/connect-four/socket.io' });
+		const socket = socketIOClient(process.env.REACT_APP_WS_URL, {
+			path: '/connect-four/socket.io'
+		});
 
 		socket.on('connect', () => {
 			console.log('Connected to WS!');
 			this.setState({ socket, userID: socket.id }, this.setWebsocketListeners);
 		});
+	};
+
+	componentWillUnmount = () => {
+		this.state.socket.disconnect();
 	};
 
 	setWebsocketListeners = () => {
