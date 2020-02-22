@@ -9,7 +9,7 @@
 	},
 	"main": "./src/Server.js",
 	"scripts": {
-    "start:prod": "pm2 start ./src/Server.js",
+    "start:prod": "pm2 start ./src/Server.js --name connect-four-server",
 		"start": "node ./src/Server.js",
 		"watch": "nodemon --exec \"npm start\" --watch src --ext js",
 		"test": "echo \"Error: no test specified\" && exit 1"

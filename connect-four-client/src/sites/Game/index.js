@@ -26,6 +26,8 @@ class SitesGame extends Component {
 	}
 
 	componentDidMount = () => {
+		console.log(process.env.REACT_APP_WS_URL);
+
 		const socket = socketIOClient(process.env.REACT_APP_WS_URL);
 
 		socket.on('connect', () => {

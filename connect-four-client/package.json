@@ -21,6 +21,7 @@
 		"uuid": "^3.4.0"
 	},
 	"scripts": {
+		"start:prod": "pm2 start ./node_modules/react-scripts/scripts/start.js --name connect-four-client",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
