@@ -1,0 +1,4 @@
+.Column:hover {
+	background: rgba(139, 139, 139, 0.425);
+	cursor: pointer;
+}

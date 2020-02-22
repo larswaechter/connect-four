@@ -1,0 +1,20 @@
+.Chat #messages {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	height: 250px;
+	overflow-y: scroll;
+}
+
+.Chat #messages li {
+	padding: 5px 10px;
+	text-align: left;
+}
+
+.Chat #messages li.own {
+	text-align: right;
+}
+
+.Chat #messages li:nth-child(odd) {
+	background: #eee;
+}

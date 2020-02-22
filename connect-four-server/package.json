@@ -1,0 +1,28 @@
+{
+	"name": "connect-four-server",
+	"version": "0.1.0",
+  "private": true,
+  "author": "Lars Wächter",
+  "description": "Connect-Four built with React and Node.js",
+  "repository": {
+		"url": "https://github.com/larswaechter/connect-four"
+	},
+	"main": "./src/Server.js",
+	"scripts": {
+    "start:prod": "pm2 start ./src/Server.js",
+		"start": "node ./src/Server.js",
+		"watch": "nodemon --exec \"npm start\" --watch src --ext js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"express": "^4.17.1",
+		"pm2": "^4.2.3",
+		"socket.io": "^2.3.0",
+		"uuid": "^3.4.0"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.2",
+		"prettier": "^1.19.1"
+	}
+}
