@@ -26,11 +26,10 @@ class SitesGame extends Component {
 	}
 
 	componentDidMount = () => {
-		console.log(process.env.REACT_APP_WS_URL);
-
-		const socket = socketIOClient(process.env.REACT_APP_WS_URL);
+		const socket = socketIOClient(process.env.REACT_APP_WS_URL, { path: '/connect-four/socket.io' });
 
 		socket.on('connect', () => {
+			console.log('Connected to WS!');
 			this.setState({ socket, userID: socket.id }, this.setWebsocketListeners);
 		});
 	};

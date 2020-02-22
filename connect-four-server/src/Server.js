@@ -1,6 +1,9 @@
 const app = require('express')();
 const http = require('http').createServer(app);
-const io = require('socket.io')(http);
+const io = require('socket.io')(http, {
+	path: '/connect-four/socket.io',
+	origins: '*:*'
+});
 const uuidv4 = require('uuid/v4');
 
 const Game = require('./Game');
